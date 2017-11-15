@@ -118,30 +118,25 @@
   <h1><?php echo TITLE?></h1>
 <?php   endif; ?>
 
-  <a data-role="button" data-inline="true" href="config.php?serial_id=<?php echo $_GET['serial_id']; ?>" data-icon="gear" data-transition="fade" data-ajax="false">設定変更</a>
-  <div class="ui-btn-right">
-    <a data-role="button" data-inline="true" href="logout.php?serial_id=<?php echo $_GET['serial_id']?>" data-transition="fade" data-ajax="false">ログアウト</a>
-  </div>
+  <a href="index.php?serial_id=<?= $serial_id?>" data-rel="back">戻る</a>
 </div>
 
 <div data-role="content" id="tab1">
   <h1><?= $year ?>年</h1>
-    <h2><?= $month ?>月</h2>
-      <div class="row">
-        <?php foreach ($videos as $path): ?>
-          <?php if (file_exists($path."/".$year.$month."00")): ?>
-            <?php $device = basename($path); ?>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-              <video controls>
-                <source src="uploads/<?=$_GET['serial_id']?>/<?=$device?>/<?=$year?><?=$month?>00/<?=$device?>.<?=$year?>.<?=$month?>.00.mp4">
-              </video>
-              <?=$device?>.<?=$year?>.<?=$month?><a href="./download.php?serial_id=<?= $_GET['serial_id']; ?>&name=/<?=$device?>/<?=$year?><?=$month?>00/<?=$device?>.<?=$year?>.<?=$month?>.00.mp4" rel="external">ダウンロード</a>
-            </div>
-          <?php endif ?>
-        <?php endforeach ?>
-      </div><!-- <div class="row"> -->
-
-  </div><!-- <div data-role="tabs"> -->
+  <h2><?= $month ?>月</h2>
+  <div class="row">
+    <?php foreach ($videos as $path): ?>
+      <?php if (file_exists($path."/".$year.$month."00")): ?>
+        <?php $device = basename($path); ?>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <video controls>
+            <source src="uploads/<?=$_GET['serial_id']?>/<?=$device?>/<?=$year?><?=$month?>00/<?=$device?>.<?=$year?>.<?=$month?>.00.mp4">
+          </video>
+          <?=$device?>.<?=$year?>.<?=$month?><a href="./download.php?serial_id=<?= $_GET['serial_id']; ?>&name=/<?=$device?>/<?=$year?><?=$month?>00/<?=$device?>.<?=$year?>.<?=$month?>.00.mp4" rel="external">ダウンロード</a>
+        </div>
+      <?php endif ?>
+    <?php endforeach ?>
+  </div><!-- <div class="row"> -->
 </div>
 
 <div data-role="footer" data-position="fixed" data-disable-page-zoom="false">
