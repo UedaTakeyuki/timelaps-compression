@@ -119,6 +119,9 @@
     <h1>2017年</h1>
     <div class="list-group">
       <div class="col-md-2 col-sm-3 col-xs-6">
+        <a class="list-group-item" href="movies.php?serial_id=<?= $_GET['serial_id'] ?>&year=2017&month=11" rel="external">2017年11月</a>
+      </div>
+      <div class="col-md-2 col-sm-3 col-xs-6">
         <a class="list-group-item" href="movies.php?serial_id=<?= $_GET['serial_id'] ?>&year=2017&month=10" rel="external">2017年10月</a>
       </div>
       <div class="col-md-2 col-sm-3 col-xs-6">
